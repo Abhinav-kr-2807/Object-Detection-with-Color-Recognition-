@@ -11,7 +11,7 @@ from PIL import Image
 import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
 
-csv = pd.read_csv(r"https://raw.githubusercontent.com/Yadav-Roshan/Color_Detection_YOLO/main/colors_final.csv")
+csv = pd.read_csv(r"https://raw.githubusercontent.com/aadarsh1810/Color_Detection_YOLO3/main/colors_final.csv")
 
 def getColorName(RGB):
     minimum = 10000
