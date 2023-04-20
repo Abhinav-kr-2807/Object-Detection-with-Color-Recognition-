@@ -231,7 +231,7 @@ def draw_boxes(img_array, v_boxes, v_labels, v_scores):
  
 def merge_functions(img_array):
 
-    model = load_model(r'C:\4th Sem\AAA\Color-Detector\model.h5')
+    model = load_model(r'model.h5')
     model.compile(optimizer='adam', loss={'yolo_loss': lambda y_true, y_pred: y_pred})
 
     
