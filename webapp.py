@@ -15,18 +15,18 @@ from matplotlib import pyplot
 from matplotlib.patches import Rectangle
 from knn import plotting, color_detector
 
-st.markdown(
-         f"""
-         <style>
-         .stApp {{
-             background-image: url("https://github.com/Yadav-Roshan/Color_Detection_YOLO/blob/main/background.jpg?raw=true");
-             background-attachment: fixed;
-             background-size: cover
-         }}
-         </style>
-         """,
-         unsafe_allow_html=True
-     )
+# st.markdown(
+#          f"""
+#          <style>
+#          .stApp {{
+#              background-image: url("https://github.com/Yadav-Roshan/Color_Detection_YOLO/blob/main/background.jpg?raw=true");
+#              background-attachment: fixed;
+#              background-size: cover
+#          }}
+#          </style>
+#          """,
+#          unsafe_allow_html=True
+#      )
 
 # This class returns the R, G, B values of the dominant colours
 def relu(x):
