@@ -316,14 +316,14 @@ with tab3:
     st.title("Developer")
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.image("https://github.com/Yadav-Roshan/Bank_Marketing/blob/main/Deployment_test/images/roshan.png?raw=true", use_column_width=True)
-        st.markdown("### Aadarsh Nayyer \n AIML, SIT")
+        #st.image("https://github.com/Yadav-Roshan/Bank_Marketing/blob/main/Deployment_test/images/roshan.png?raw=true", use_column_width=True)
+        st.markdown("### Aadarsh Nayyer \n II year BTech AIML, SIT")
 
     with col2:
-        st.image("https://github.com/Yadav-Roshan/Bank_Marketing/blob/main/Deployment_test/images/roshan.png?raw=true", use_column_width=True)
-        st.markdown("### Aadarsh Nayyer \n AIML, SIT")
+        #st.image("https://github.com/Yadav-Roshan/Bank_Marketing/blob/main/Deployment_test/images/roshan.png?raw=true", use_column_width=True)
+        st.markdown("### Kanika Gulati \n II year BTech AIML, SIT")
 
 
     with col3:
-        st.image("https://github.com/Yadav-Roshan/Bank_Marketing/blob/main/Deployment_test/images/roshan.png?raw=true", use_column_width=True)
-        st.markdown("### Aadarsh Nayyer \n AIML, SIT")
+        #st.image("https://github.com/Yadav-Roshan/Bank_Marketing/blob/main/Deployment_test/images/roshan.png?raw=true", use_column_width=True)
+        st.markdown("### Abhinav \n II year BTech AIML, SIT")
