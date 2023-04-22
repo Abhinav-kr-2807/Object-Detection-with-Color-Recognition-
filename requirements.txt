@@ -9,5 +9,4 @@ tensorflow
 scikit-image
 Pillow
 ColorDetect
-subprocess.
 time
