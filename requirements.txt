@@ -11,4 +11,3 @@ Pillow
 ColorDetect
 subprocess.
 time
-urllib
