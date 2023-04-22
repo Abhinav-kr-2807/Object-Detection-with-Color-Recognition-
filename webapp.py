@@ -14,6 +14,27 @@ from tensorflow.keras.utils import img_to_array
 from matplotlib import pyplot
 from matplotlib.patches import Rectangle
 from knn import plotting, color_detector
+import time
+import urllib
+
+st.set_page_config(
+    page_title="Color Detection with YOLO",
+    page_icon="🎨"
+)
+
+st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("https://github.com/aadarsh1810/Color_Detection_YOLO3/blob/main/black-background.gif?raw=true");
+             background-attachment: fixed;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+
 
 # This class returns the R, G, B values of the dominant colours
 def relu(x):
@@ -181,6 +202,7 @@ def get_boxes(boxes, labels, thresh):
 def draw_boxes(img_array, v_boxes, v_labels, v_scores):
 
     data = img_array
+    st.success("Here it is")
     pyplot.imshow(data)
     ax = pyplot.gca()
     
@@ -259,9 +281,50 @@ def merge_functions(img_array):
     draw_boxes(img_array, v_boxes, v_labels, v_scores)
 
 
-uploaded_img = st.file_uploader("Upload Image", type = ['jpeg', 'jpg'], accept_multiple_files=False)
-if st.button(label = "Predict"):
-    if uploaded_img is not None:
-        image = Image.open(uploaded_img)
-        img_array = np.array(image)
-        merge_functions(img_array)
+tab1, tab2, tab3 = st.tabs(["Color Detector", "Model Details", "About"])
+
+with tab1:
+    st.title("Object & Color Detection")
+    st.header("Upload Image to detect object and its color")
+    uploaded_img = st.file_uploader("Upload Image", type = ['jpeg', 'jpg'], accept_multiple_files=False)
+    if st.button(label = "Predict"):
+        if uploaded_img is None:
+            st.warning("Please upload image first.")
+
+        elif uploaded_img is not None:
+            image = Image.open(uploaded_img)
+            img_array = np.array(image)
+            
+            progress_text = "Operation in progress. Please wait."
+            my_bar = st.progress(0, text=progress_text)
+
+            for percent_complete in range(100):
+                time.sleep(0.1)
+                my_bar.progress(percent_complete + 1, text=progress_text)
+
+            merge_functions(img_array)
+
+
+with tab2:
+    st.title("YOLO Architecture")
+    st.image("https://github.com/aadarsh1810/Color_Detection_YOLO3/blob/main/yolov3.png?raw=true")
+    st.title("Color Detection Flowchart")
+    st.image("https://github.com/aadarsh1810/Color_Detection_YOLO3/blob/main/Kmeans.jpg?raw=true", use_column_width=True)
+
+with tab3:
+    st.title("Our GitHub Page")
+    st.write("https://github.com/aadarsh1810/Color_Detection_YOLO3", unsafe_allow_html=True)
+    st.title("Developer")
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.image("https://github.com/Yadav-Roshan/Bank_Marketing/blob/main/Deployment_test/images/roshan.png?raw=true", use_column_width=True)
+        st.markdown("### Aadarsh Nayyer \n AIML, SIT")
+
+    with col2:
+        st.image("https://github.com/Yadav-Roshan/Bank_Marketing/blob/main/Deployment_test/images/roshan.png?raw=true", use_column_width=True)
+        st.markdown("### Aadarsh Nayyer \n AIML, SIT")
+
+
+    with col3:
+        st.image("https://github.com/Yadav-Roshan/Bank_Marketing/blob/main/Deployment_test/images/roshan.png?raw=true", use_column_width=True)
+        st.markdown("### Aadarsh Nayyer \n AIML, SIT")
