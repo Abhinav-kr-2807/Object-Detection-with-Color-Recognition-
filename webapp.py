@@ -15,7 +15,6 @@ from matplotlib import pyplot
 from matplotlib.patches import Rectangle
 from knn import plotting, color_detector
 import time
-import urllib
 
 st.set_page_config(
     page_title="Color Detection with YOLO",
