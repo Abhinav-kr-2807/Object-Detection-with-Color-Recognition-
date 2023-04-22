@@ -9,3 +9,4 @@ tensorflow
 scikit-image
 Pillow
 ColorDetect
+inotify
