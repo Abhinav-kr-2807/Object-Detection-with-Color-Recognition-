@@ -15,11 +15,6 @@ from matplotlib import pyplot
 from matplotlib.patches import Rectangle
 from knn import plotting, color_detector
 
-st.set_page_config(
-    page_title="Color Detection with YOLO",
-    page_icon="🎨"
-)
-
 st.markdown(
          f"""
          <style>
@@ -32,6 +27,12 @@ st.markdown(
          """,
          unsafe_allow_html=True
      )
+
+st.set_page_config(
+    page_title="Color Detection with YOLO",
+    page_icon="🎨"
+)
+
 
 # This class returns the R, G, B values of the dominant colours
 def relu(x):
