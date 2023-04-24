@@ -15,6 +15,7 @@ from matplotlib import pyplot
 from matplotlib.patches import Rectangle
 from knn import plotting, color_detector
 import time
+import urllib
 
 st.set_page_config(
     page_title="Color Detection with YOLO",
@@ -239,7 +240,7 @@ def draw_boxes(img_array, v_boxes, v_labels, v_scores):
  
 def merge_functions(img_array):
 
-    model = load_model(r'model.h5')
+    model = load_model("model.h5")
     model.compile(optimizer='adam', loss={'yolo_loss': lambda y_true, y_pred: y_pred})
 
     
@@ -305,6 +306,8 @@ with tab1:
 
 
 with tab2:
+    st.title("Project Framework")
+    st.image("https://github.com/aadarsh1810/Color_Detection_YOLO3/blob/main/WORKFLOW.png?raw=true", use_column_width=True)
     st.title("YOLO Architecture")
     st.image("https://github.com/aadarsh1810/Color_Detection_YOLO3/blob/main/yolov3.png?raw=true")
     st.title("Color Detection Flowchart")
@@ -314,16 +317,23 @@ with tab3:
     st.title("Our GitHub Page")
     st.write("https://github.com/aadarsh1810/Color_Detection_YOLO3", unsafe_allow_html=True)
     st.title("Developer")
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
     with col1:
         #st.image("https://github.com/Yadav-Roshan/Bank_Marketing/blob/main/Deployment_test/images/roshan.png?raw=true", use_column_width=True)
         st.markdown("### Aadarsh Nayyer \n II year BTech AIML, SIT")
 
     with col2:
         #st.image("https://github.com/Yadav-Roshan/Bank_Marketing/blob/main/Deployment_test/images/roshan.png?raw=true", use_column_width=True)
-        st.markdown("### Kanika Gulati \n II year BTech AIML, SIT")
+        st.markdown("### Abhinav Kumar \n II year BTech AIML, SIT")
 
 
     with col3:
         #st.image("https://github.com/Yadav-Roshan/Bank_Marketing/blob/main/Deployment_test/images/roshan.png?raw=true", use_column_width=True)
-        st.markdown("### Abhinav \n II year BTech AIML, SIT")
+        st.markdown("### Aayush Rajput \n II year BTech AIML, SIT")
+
+    with col3:
+        #st.image("https://github.com/Yadav-Roshan/Bank_Marketing/blob/main/Deployment_test/images/roshan.png?raw=true", use_column_width=True)
+        st.markdown("### Bhavya Dashottar \n II year BTech AIML, SIT")
+
+
+        
