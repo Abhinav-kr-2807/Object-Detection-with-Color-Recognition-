@@ -11,7 +11,7 @@ from PIL import Image
 import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
 
-csv = pd.read_csv(r"https://raw.githubusercontent.com/aadarsh1810/Color_Detection_YOLO3/main/colors_final.csv")
+csv = pd.read_csv("C:\\Users\\nayye\\OneDrive\\Desktop\\SML_Project\\colors_final.csv")
 
 def getColorName(RGB):
     minimum = 10000
@@ -95,7 +95,7 @@ def plotting(img):
     plt.axis('off')
     st.pyplot(plt.show())
     plt.clf()
-
+    st.write("Colors in image with percentages and shades")
     df = color_detector(img)
 
     details, plots = st.columns([2, 1.5])
