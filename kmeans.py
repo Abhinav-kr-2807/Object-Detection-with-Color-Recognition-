@@ -11,7 +11,7 @@ from PIL import Image
 import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
 
-csv = pd.read_csv("C:\\Users\\nayye\\OneDrive\\Desktop\\SML_Project\\colors_final.csv")
+csv = pd.read_csv("colors_final.csv")
 
 def getColorName(RGB):
     minimum = 10000
