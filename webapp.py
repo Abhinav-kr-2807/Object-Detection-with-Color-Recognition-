@@ -13,7 +13,7 @@ from tensorflow.keras.utils import load_img
 from tensorflow.keras.utils import img_to_array
 from matplotlib import pyplot
 from matplotlib.patches import Rectangle
-from knn import plotting, color_detector
+from kmeans import plotting, color_detector
 import time
 import urllib
 
