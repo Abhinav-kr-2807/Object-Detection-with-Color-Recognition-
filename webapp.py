@@ -240,7 +240,7 @@ def draw_boxes(img_array, v_boxes, v_labels, v_scores):
  
 def merge_functions(img_array):
 
-    model = load_model(r"C:\Users\nayye\OneDrive\Desktop\SML_Project\model.h5")
+    model = load_model(r"model.h5")
     model.compile(optimizer='adam', loss={'yolo_loss': lambda y_true, y_pred: y_pred})
 
     
