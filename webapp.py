@@ -240,7 +240,7 @@ def draw_boxes(img_array, v_boxes, v_labels, v_scores):
  
 def merge_functions(img_array):
 
-    model = load_model("model.h5")
+    model = load_model(r"C:\Users\nayye\OneDrive\Desktop\SML_Project\model.h5")
     model.compile(optimizer='adam', loss={'yolo_loss': lambda y_true, y_pred: y_pred})
 
     
@@ -306,6 +306,8 @@ with tab1:
 
 
 with tab2:
+    st.title("Object Labels used for training model:")
+    st.write("person, bicycle, car, motorbike, aeroplane, bus, train, truck,boat, traffic light, fire hydrant, stop sign, parking meter, bench,\n bird, cat, dog, horse, sheep, cow, elephant, bear, zebra,giraffe,\n backpack, umbrella, handbag, tie, suitcase, frisbee, skis, snowboard,\n sports ball, kite, baseball bat, baseball glove, skateboard, surfboard,\n tennis racket, bottle, wine glass, cup, fork, knife, spoon, bowl, banana,\n apple, sandwich, orange, broccoli, carrot, hot dog, pizza, donut, cake,\n chair, sofa, pottedplant, bed, diningtable, toilet, tvmonitor, laptop, mouse,\n remote, keyboard, cell phone, microwave, oven, toaster, sink, refrigerator,\n book, clock, vase, scissors, teddy bear, hair drier, toothbrush")
     st.title("Project Framework")
     st.image("https://github.com/aadarsh1810/Color_Detection_YOLO3/blob/main/WORKFLOW.png?raw=true", use_column_width=True)
     st.title("YOLO Architecture")
@@ -317,7 +319,7 @@ with tab3:
     st.title("Our GitHub Page")
     st.write("https://github.com/aadarsh1810/Color_Detection_YOLO3", unsafe_allow_html=True)
     st.title("Developer")
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3 = st.columns(3)
     with col1:
         #st.image("https://github.com/Yadav-Roshan/Bank_Marketing/blob/main/Deployment_test/images/roshan.png?raw=true", use_column_width=True)
         st.markdown("### Aadarsh Nayyer \n II year BTech AIML, SIT")
@@ -331,9 +333,4 @@ with tab3:
         #st.image("https://github.com/Yadav-Roshan/Bank_Marketing/blob/main/Deployment_test/images/roshan.png?raw=true", use_column_width=True)
         st.markdown("### Aayush Rajput \n II year BTech AIML, SIT")
 
-    with col3:
-        #st.image("https://github.com/Yadav-Roshan/Bank_Marketing/blob/main/Deployment_test/images/roshan.png?raw=true", use_column_width=True)
-        st.markdown("### Bhavya Dashottar \n II year BTech AIML, SIT")
-
-
-        
+   
