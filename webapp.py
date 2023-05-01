@@ -16,24 +16,64 @@ from matplotlib.patches import Rectangle
 from kmeans import plotting, color_detector
 import time
 import urllib
+import requests
+from streamlit_lottie import st_lottie
+from streamlit_lottie import st_lottie_spinner
 
+
+def animation(url):
+    url = requests.get(url)
+    url_json = dict()
+    if url.status_code == 200:
+        return url.json()
+    else:
+        print("Error in URL")
+        
 st.set_page_config(
     page_title="Color Detection with YOLO",
     page_icon="🎨"
 )
+st.title("OBJECT AND COLOR DETECTION")
+st.write("Color recognition and object detection are crucial tasks in computer vision that have wide-ranging applications in various fields. Optimized algorithms and YOLO (You Only Look Once) are two popular approaches used for this purpose.")
+st.write("Combining color recognition with object detection can further enhance the accuracy and efficiency of these tasks. By using optimized algorithms and YOLO, it is possible to achieve real-time and accurate color recognition and object detection, which has significant implications for a wide range of industries and applications")
+col1,col2=st.columns(2)
+with col1:
+        url_brain = animation("https://assets4.lottiefiles.com/packages/lf20_trp9nY0oPe.json")
+        st_lottie(url_brain,
+                  height=400,  
+                  width=400,
+                  speed=1,  
+                  loop=True,  
+                  quality='high',
+                  key='Brain' 
+                  )
+        st.write("Object detection involves identifying and localizing objects of interest within an image or video stream. YOLO is an optimized object detection algorithm that uses a single neural network to predict bounding boxes and class probabilities for multiple objects in an image. YOLO achieves real-time object detection with high accuracy and is widely used in various applications, such as self-driving cars and security systems.")
+        
+with col2:
+          url_color = animation("https://assets2.lottiefiles.com/packages/lf20_js4RZ4.json")
+          st_lottie(url_color,
+                  height=400,  
+                  width=400,
+                  speed=1,  
+                  loop=True,  
+                  quality='high',
+                  key='Color' 
+                  )
+          st.write("Color recognition involves identifying specific colors in an image or video stream, which can be used to isolate objects or areas of interest. This process can be optimized by using techniques such as color space transformation and thresholding, which allow for efficient and accurate color segmentation.")
+        
 
-st.markdown(
-         f"""
-         <style>
-         .stApp {{
-             background-image: url("https://github.com/aadarsh1810/Color_Detection_YOLO3/blob/main/black-background.gif?raw=true");
-             background-attachment: fixed;
-             background-size: cover
-         }}
-         </style>
-         """,
-         unsafe_allow_html=True
-     )
+#st.markdown(
+        # f"""
+       #  <style>
+         #.stApp {{
+             #background-image: url("https://github.com/aadarsh1810/Color_Detection_YOLO3/blob/main/black-background.gif?raw=true");
+            #background-attachment: fixed;
+             #background-size: cover
+        # }}
+        # </style>
+       #  """,
+         #unsafe_allow_html=True
+    # )
 
 
 # This class returns the R, G, B values of the dominant colours
@@ -240,7 +280,7 @@ def draw_boxes(img_array, v_boxes, v_labels, v_scores):
  
 def merge_functions(img_array):
 
-    model = load_model("model.h5")
+    model = load_model(r"C:\Users\nayye\OneDrive\Desktop\SML_Project\model.h5")
     model.compile(optimizer='adam', loss={'yolo_loss': lambda y_true, y_pred: y_pred})
 
     
@@ -284,7 +324,7 @@ def merge_functions(img_array):
 tab1, tab2, tab3 = st.tabs(["Color Detector", "Model Details", "About"])
 
 with tab1:
-    st.title("Object & Color Detection")
+    st.title("DEMO!")
     st.header("Upload Image to detect object and its color")
     uploaded_img = st.file_uploader("Upload Image", type = ['jpeg', 'jpg'], accept_multiple_files=False)
     if st.button(label = "Predict"):
@@ -307,7 +347,7 @@ with tab1:
 
 with tab2:
     st.title("Object Labels used for training model:")
-    st.write("person, bicycle, car, motorbike, aeroplane, bus, train, truck,boat, traffic light, fire hydrant, stop sign, parking meter, bench,\n bird, cat, dog, horse, sheep, cow, elephant, bear, zebra,giraffe,\n backpack, umbrella, handbag, tie, suitcase, frisbee, skis, snowboard,\n sports ball, kite, baseball bat, baseball glove, skateboard, surfboard,\n tennis racket, bottle, wine glass, cup, fork, knife, spoon, bowl, banana,\n apple, sandwich, orange, broccoli, carrot, hot dog, pizza, donut, cake,\n chair, sofa, pottedplant, bed, diningtable, toilet, tvmonitor, laptop, mouse,\n remote, keyboard, cell phone, microwave, oven, toaster, sink, refrigerator,\n book, clock, vase, scissors, teddy bear, hair drier, toothbrush")
+    st.write("There are around 80 labels of objects: \nperson, bicycle, car, motorbike, aeroplane, bus, train, truck,boat, traffic light, fire hydrant, stop sign, parking meter, bench,\n bird, cat, dog, horse, sheep, cow, elephant, bear, zebra,giraffe,\n backpack, umbrella, handbag, tie, suitcase, frisbee, skis, snowboard,\n sports ball, kite, baseball bat, baseball glove, skateboard, surfboard,\n tennis racket, bottle, wine glass, cup, fork, knife, spoon, bowl, banana,\n apple, sandwich, orange, broccoli, carrot, hot dog, pizza, donut, cake,\n chair, sofa, pottedplant, bed, diningtable, toilet, tvmonitor, laptop, mouse,\n remote, keyboard, cell phone, microwave, oven, toaster, sink, refrigerator,\n book, clock, vase, scissors, teddy bear, hair drier, toothbrush")
     st.title("Project Framework")
     st.image("https://github.com/aadarsh1810/Color_Detection_YOLO3/blob/main/WORKFLOW.png?raw=true", use_column_width=True)
     st.title("YOLO Architecture")
@@ -318,19 +358,43 @@ with tab2:
 with tab3:
     st.title("Our GitHub Page")
     st.write("https://github.com/aadarsh1810/Color_Detection_YOLO3", unsafe_allow_html=True)
+    st.title("Research Paper")
+    st.write("https://www.overleaf.com/project/644e1b36122e9d9110a9d883",unsafe_allow_html=True)
     st.title("Developer")
     col1, col2, col3 = st.columns(3)
     with col1:
-        #st.image("https://github.com/Yadav-Roshan/Bank_Marketing/blob/main/Deployment_test/images/roshan.png?raw=true", use_column_width=True)
+        st.image("https://github.com/aadarsh1810/Color_Detection_YOLO3/blob/main/aadarsh.jpg?raw=true", use_column_width=True)
         st.markdown("### Aadarsh Nayyer \n II year BTech AIML, SIT")
+        st.markdown("Mail: nayyeraadarsh@gmail.com")
+        st.markdown("LinkedIn: https://www.linkedin.com/in/aadarsh-nayyer-168736246")
 
     with col2:
-        #st.image("https://github.com/Yadav-Roshan/Bank_Marketing/blob/main/Deployment_test/images/roshan.png?raw=true", use_column_width=True)
+        st.image("https://github.com/aadarsh1810/Color_Detection_YOLO3/blob/main/abhinav.jpg?raw=true", use_column_width=True)
         st.markdown("### Abhinav Kumar \n II year BTech AIML, SIT")
+        st.markdown("Mail: ak7290090@gmail.com")
+        st.markdown("LinkedIn: https://www.linkedin.com/in/abhinav-kumar-261a57223")
 
 
     with col3:
-        #st.image("https://github.com/Yadav-Roshan/Bank_Marketing/blob/main/Deployment_test/images/roshan.png?raw=true", use_column_width=True)
+        st.image("https://github.com/aadarsh1810/Color_Detection_YOLO3/blob/main/aayush%20rajput.jpg?raw=true", use_column_width=True)
         st.markdown("### Aayush Rajput \n II year BTech AIML, SIT")
-
+        st.markdown("Mail: aayushsingh0310@gmail.com")
+        st.markdown("LinkedIn: https://www.linkedin.com/in/aayush-rajput-53a738250")
+footer="""<style>
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: black;
+color: white;
+text-align: center;
+}
+</style>
+<div class="footer">
+<p>Developed by:</p>
+<p>Aadarsh Nayyer , Abhinav Kumar and Aayush Rajput</p>
+</div>
+"""
+st.markdown(footer,unsafe_allow_html=True)
    
