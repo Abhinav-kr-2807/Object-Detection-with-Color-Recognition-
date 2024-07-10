@@ -15,7 +15,7 @@ This project focuses on color detection of objects detected in images using the 
 ### Project Details
 
 - Developed a model for detecting objects and identifying color shades in images using deep learning and machine learning techniques.
-- Published a research paper detailing the project's methods, findings, and performance metrics. [Read the research paper]([link_to_paper.pdf](https://publications.eai.eu/index.php/IoT/article/view/5495)).
+- Published a research paper detailing the project's methods, findings, and performance metrics. [Read the research paper]([https://publications.eai.eu/index.php/IoT/article/view/5495]).
 
 ## Website
 
